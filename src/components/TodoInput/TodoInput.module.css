@@ -1,0 +1,33 @@
+.todoInputForm {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input {
+  flex: 1;
+  height: 35px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  border: none;
+}
+
+.addButton {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #654321;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.addButton:hover {
+  background-color: #d2b48c;
+}
+
+.input::placeholder {
+  opacity: 0.2;
+}
