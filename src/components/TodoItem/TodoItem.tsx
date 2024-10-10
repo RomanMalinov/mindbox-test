@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Todo } from '../../types/Todo';
 import styles from './TodoItem.module.css';
 
@@ -8,18 +8,31 @@ type TodoItemProps = {
 }
 
 const TodoItem: React.FC<TodoItemProps> = ({ todo, toggleTodo }) => {
+  const [isChecked, setIsChecked] = useState(todo.isCompleted);
+
+  const handleRadioClick = () => {
+    if (isChecked) {
+      setIsChecked(false);
+      toggleTodo(todo.id);
+    } else {
+      setIsChecked(true);
+      toggleTodo(todo.id);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <label className={styles.customRadio}>
         <input
           type="radio"
-          checked={todo.isCompleted}
-          onChange={() => toggleTodo(todo.id)}
+          checked={isChecked}
+          onClick={handleRadioClick}
+          readOnly
         />
         <span className={styles.customRadio}></span>
       </label>
       <span
-        className={`${styles.todoText} ${todo.isCompleted ? styles.completed : ''}`}
+        className={`${styles.todoText} ${isChecked ? styles.completed : ''}`}
       >
         {todo.text}
       </span>

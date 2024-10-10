@@ -16,7 +16,7 @@ const TodoInput: React.FC<TodoInputProps> = ({ addTodo }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.todoInputForm}>
+    <form onSubmit={handleSubmit} className={styles.todoInputForm} data-testid="todo-form">
       <input
         type="text"
         value={text}
